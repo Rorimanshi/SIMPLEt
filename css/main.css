@@ -1,0 +1,267 @@
+body{
+    background-color: white;
+
+    margin: 0;
+    padding: 0;
+    padding-left: 125px;
+}
+
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    background-color: rgb(4,58,94);
+
+    width: 100%;
+    height: 50px;
+    z-index: 100;
+
+    display: flex;
+    justify-content: center;
+}
+
+.logo {
+    height: 100px;
+    transform: translateY(25%);
+
+    box-shadow: 0px 0px 6px rgba(100,100,100,1);
+}
+
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    position: relative;
+    padding-right: 20px; 
+}
+
+.nav-center {
+  flex: 0 0 auto;
+  gap: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.nav-center a{
+    transition: 0.3s;
+}
+.nav-center a:hover{
+    text-shadow: 1px 1px 20px rgba(0, 0, 0, 1), 1px 1px 20px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.nav-left{
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: end;
+    pointer-events: none;
+}
+
+.nav-right{
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+}
+
+.search-button{
+    background: transparent;
+
+    border: none;
+
+    padding: 0;
+
+    cursor: pointer;
+}
+
+.search-input {
+    width: 0;
+    height: 0;
+    padding: 0;
+    border: none;
+    border-radius: 3px;
+    margin-right: 5px;
+
+    transition: all 0.5s ease;
+    opacity: 0;
+}
+.search-input.active{
+    width: 200px;
+    height: 20px;
+    padding: 5px 10px;
+    opacity: 1;
+}
+
+.main-nav a {
+    color: white;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+    .nav-center > *:not(.logo) {
+        display: none;
+    }
+    .nav-left{
+        justify-content: start;
+    }
+}
+
+#left-navbar{
+    display: flex;
+    flex-direction: row;
+
+    position: fixed;
+    top: 50px;
+    left: 0;
+
+    background-color: white;
+
+    border: 1px solid rgb(229,229,229);
+    box-shadow: 0px 0px 4px rgba(0,0,0,1);
+
+    width: 110px;
+    height: 100%;
+    padding-left: 15px;
+
+    z-index: 99;
+
+    transition: 0.5s ease-in-out;
+}
+#left-navbar.hidden{
+    transform: translateX(-100px);
+}
+
+.left-navbar-content{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    width: 80px;
+    padding-top: 100px;
+
+    transition: opacity 0.2s ease-in-out;
+}
+.left-navbar.hidden .left-navbar-content{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.left-navbar-hide{
+    background-image: url("../img/hidepr.png");
+    background-repeat: no-repeat;
+    background-position: 50% 275px;
+    background-size: 10px;
+
+    width: 100%;
+    height: 100%;
+
+    cursor: pointer;
+
+    transform: rotate(0deg);
+    transform-origin: center 280px;
+    transition: transform 0.5s ease-in-out;
+}
+.left-navbar.hidden .left-navbar-hide{
+    transform: rotate(180deg);
+}
+
+.left-navbar-section{
+    display: flex;
+    flex-direction: column;
+}
+.left-navbar-section:not(:last-child){
+    border-bottom: 1px dashed grey;
+    padding-bottom: 10px;
+}
+.left-navbar-section a{
+    color: rgb(4,58,94);
+    text-decoration: none;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+
+
+.about {
+  max-width: 900px;
+  margin: 100px auto 50px auto;
+  padding: 0 20px;
+  font-family: sans-serif;
+}
+
+.about-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-bottom: 2px dashed grey;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+}
+.about-header h2{
+    color: rgb(4,58,94);
+    text-decoration: none;
+    font-family: sans-serif;
+}
+
+.home-icon {
+  width: 32px;
+  height: 32px;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.column p,
+.column h3{
+    color: rgb(4, 43, 70);
+    text-decoration: none;
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+
+    margin: 0;
+}
+
+.about-image {
+  max-width: 100%;
+  height: auto;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 768px) {
+  .about-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+
+    background-color: rgb(4,58,94);
+
+    width: 100%;
+    height: 40px;
+    z-index: 100;
+}
